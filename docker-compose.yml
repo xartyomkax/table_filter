@@ -1,0 +1,39 @@
+version: "3.1"
+
+services:
+  api:
+    build: ./api
+    ports:
+      - '8081:80'
+    volumes:
+      - ./api:/var/www
+    depends_on:
+      - mysql
+
+  frontend:
+    build: ./frontend
+    ports:
+      - '8080:8080'
+      - '8000:8000'
+    volumes:
+      - ./frontend:/vue3cli
+    stdin_open: true
+    tty: true
+    depends_on:
+      - api
+
+  mysql:
+    build: api/docker/mysql
+    volumes:
+      - ./var/mysql:/var/lib/mysql
+    ports:
+      - ${DB_PORT}:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+
+networks:
+  default:
+    driver: bridge
