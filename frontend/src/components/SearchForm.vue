@@ -1,6 +1,6 @@
 <template>
 
-  <form id="search-form" @submit.prevent="$emit('update-table', filter, size, sort)">
+  <form id="search-form" @submit.prevent="$emit('update-table', filter, pageSize, sort)">
 
     <div class="form-group">
       <label class="control-label" for="name">Product name</label>
