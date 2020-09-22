@@ -25,7 +25,7 @@ services:
   mysql:
     build: api/docker/mysql
     volumes:
-      - ./var/mysql:/var/lib/mysql
+      - ./var/_mysql:/var/lib/mysql
     ports:
       - ${DB_PORT}:3306
     environment:

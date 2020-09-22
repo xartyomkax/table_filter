@@ -4,7 +4,10 @@ Prerequired
 
 How to run
 ```
+docker-compose --env-file api/.env run frontend npm install
 docker-compose --env-file api/.env up -d --build
-docker-compose --env-file api/.env exec frontend npm install
 docker-compose --env-file api/.env exec api composer install
+docker-compose --env-file api/.env exec api bin/console doctrine:migrations:migrate --no-interaction
 ```
+
+- Open [http://localhost:8080](http://localhost:8080);

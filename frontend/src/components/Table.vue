@@ -1,5 +1,5 @@
 <template>
-  <table>
+  <table class="table table-striped table-bordered">
     <thead>
     <tr>
       <th>id</th>
@@ -15,8 +15,8 @@
       <th>style</th>
       <th>color</th>
       <th>url</th>
-      <th>image</th>
-      <th>image_additional</th>
+      <th class="r-img">image</th>
+      <th class="r-img">image_additional</th>
       <th>additional</th>
       <th>source_video</th>
     </tr>
@@ -27,7 +27,7 @@
       <td>{{ record.id }}</td>
       <td>{{ record.gtin }}</td>
       <td>{{ record.product_name }}</td>
-      <td>{{ record.product_desc }}</td>
+      <td class="r-description">{{ record.product_desc }}</td>
       <td>{{ record.price }}</td>
       <td>{{ record.currency }}</td>
       <td>{{ record.category }}</td>
@@ -37,8 +37,8 @@
       <td>{{ record.style }}</td>
       <td>{{ record.color }}</td>
       <td><a :href="record.url" >link</a></td>
-      <td><img :src="record.image" /></td>
-      <td><img :src="record.image_additional" /></td>
+      <td class="r-img"><img :src="record.image" /></td>
+      <td class="r-img"><img :src="record.image_additional" /></td>
       <td>{{ record.additional }}</td>
       <td>
         <video width="320" height="240" controls>
@@ -63,8 +63,17 @@ export default {
 </script>
 
 <style scoped>
-  td {
-    max-width: 150px;
-    word-break: break-all;
+  td{
+    padding: 5px;
+    text-align: left;
+  }
+  .r-description{
+    width: 300px;
+  }
+  .r-img {
+    width: 100px;
+  }
+  .r-img img {
+    max-width: 90px;
   }
 </style>
