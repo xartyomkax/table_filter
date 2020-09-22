@@ -27,7 +27,7 @@ class ProductController extends AbstractController
         $products = $this->productRepository->findAllByConditions(
             $request->get('filters', []),
             $request->get('sort'),
-            (int)$request->get('limit', 100),
+            (int)$request->get('limit', 20),
             (int)$request->get('offset', 0)
         );
 
