@@ -1,4 +1,4 @@
-FROM node:11.12-slim
+FROM node:12.18.3-slim
 
 RUN apt-get -y update \
 	&& apt-get install -y git
@@ -12,8 +12,6 @@ RUN apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
-RUN npm install
-
 USER node
 
-CMD ["npm", "run", "serve"]
+#CMD ["npm", "run", "serve"]
